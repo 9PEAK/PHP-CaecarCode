@@ -4,7 +4,7 @@ namespace Peak;
 
 abstract class Base {
 
-	protected static $STRING = 'ABCDEFGHIJKLMNOPKRSTUVWXYZ0123456789'; // 原料
+	protected static $STRING = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'; // 原料
 	protected static $OFFSET = 0; // 字符偏移
 
 
