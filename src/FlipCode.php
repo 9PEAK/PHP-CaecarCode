@@ -37,6 +37,4 @@ class FlipCode extends Base {
 
 
 
-
-
 }
