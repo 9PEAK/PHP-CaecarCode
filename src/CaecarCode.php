@@ -16,7 +16,10 @@ class CaecarCode extends Base {
 
 		$max = strlen($str);
 		for ($i=0; $i<$max; $i++) {
-			$str[$i] = self::offset($str[$i], self::$OFFSET);
+			$letter = self::offset($str[$i], self::$OFFSET);
+			if ( $letter!==false) {
+				$str[$i] = $letter;
+			}
 		}
 
 		return $str;
@@ -28,7 +31,10 @@ class CaecarCode extends Base {
 	{
 		$max = strlen($str);
 		for ($i=0; $i<$max; $i++) {
-			$str[$i] = self::offset($str[$i], self::$OFFSET*-1);
+			$letter = self::offset($str[$i], self::$OFFSET*-1);
+			if ( $letter!==false) {
+				$str[$i] = $letter;
+			}
 		}
 
 		return $str;
