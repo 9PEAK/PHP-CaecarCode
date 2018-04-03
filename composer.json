@@ -1,0 +1,22 @@
+{
+    "name": "9peak/CaesarCode",
+    "description": "CaesarCode for PHP . / PHP凯撒密码算法及其更复杂的扩展组件。",
+    "license": "MIT",
+    "keywords": ["caesar code", "php caesar code"],
+    "minimum-stability": "dev",
+    "authors": [
+        {
+            "name": "Kane Young / 杨祥凯",
+            "email": "52653784@qq.com"
+        }
+    ],
+    "require": {
+        "php": ">= 5.4"
+    },
+    "require-dev": {},
+    "autoload": {
+        "psr-4": {
+            "Peak\\": "src"
+        }
+    }
+}
