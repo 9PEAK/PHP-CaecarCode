@@ -28,37 +28,23 @@ abstract class Base {
 	}
 
 
-	/**
-	 * to get the new string by the forward or backward offset
-	 * @param $str. string. the string want to encode
-	 * @param $offset. ing. offset
-	 * @param #encode. boolean. true forward, false backward
-	 * */
-	/*protected static function set ($str, $offset=0, $encode=true)
-	{
-		// 计算位移 判断加密或者解密
-		$x = $encode ? self::$OFFSET+$offset : self::$OFFSET*-1+$offset ;
-
-		// 执行位移 offset
-		return self::offset($str, $x);
-	}
-*/
 
 
 	/**
 	 * Move the string pointer by the given offset
 	 * @param $str. string. the letter or number
 	 * @param $x. int. offset for the pointer
-	 * @return string.
+	 * @return string. the changed letter
 	 * */
 	protected static function offset($str, $x)
 	{
 
-		if (!$x) return $str;
+		if (!$x) return $str; // 不位移 返回自身
 
 		// 计算位移
 		$n = strpos(self::$STRING, $str); // 字符当前位置
-		if (!is_int($n)) return false;
+
+		if (!is_int($n)) return $str; // 不存在该字符则返回自身
 
 		$x+= $n;
 		$y = strlen(self::$STRING);

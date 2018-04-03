@@ -16,25 +16,19 @@ class CaecarCode extends Base {
 
 		$max = strlen($str);
 		for ($i=0; $i<$max; $i++) {
-			$letter = self::offset($str[$i], self::$OFFSET);
-			if ( $letter!==false) {
-				$str[$i] = $letter;
-			}
+			$str[$i] = self::offset($str[$i], self::$OFFSET);
 		}
 
 		return $str;
 	}
-	
+
 
 
 	static function decode ($str)
 	{
 		$max = strlen($str);
 		for ($i=0; $i<$max; $i++) {
-			$letter = self::offset($str[$i], self::$OFFSET*-1);
-			if ( $letter!==false) {
-				$str[$i] = $letter;
-			}
+			$str[$i] = self::offset($str[$i], self::$OFFSET*-1);
 		}
 
 		return $str;
