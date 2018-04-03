@@ -18,7 +18,6 @@ class FlipCode extends Base {
 			$n = $max-$n;
 			$str[$i] = self::offset(self::$STRING[$n], self::$OFFSET);
 		}
-
 		return $str;
 	}
 	
