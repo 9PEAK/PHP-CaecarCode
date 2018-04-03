@@ -3,7 +3,6 @@
     "description": "CaesarCode for PHP . / PHP凯撒密码算法及其更复杂的扩展组件。",
     "license": "MIT",
     "keywords": ["caesar code", "php caesar code"],
-    "minimum-stability": "dev",
     "authors": [
         {
             "name": "Kane Young / 杨祥凯",
