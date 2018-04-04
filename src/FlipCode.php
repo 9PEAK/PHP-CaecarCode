@@ -12,7 +12,7 @@ class FlipCode extends Base {
 	static function encode ($str)
 	{
 
-		$max = strlen(self::$STRING);
+		$max = strlen($str);
 		for ($i=0; $i<$max; $i++) {
 			$n = strpos(self::$STRING, $str[$i]); // 字符当前位置
 			if ( $n===false )continue;
@@ -26,7 +26,7 @@ class FlipCode extends Base {
 
 	static function decode ($str)
 	{
-		$max = strlen(self::$STRING);
+		$max = strlen($str);
 		for ($i=0; $i<$max; $i++) {
 			$n = strpos(self::$STRING, $str[$i]); // 字符当前位置
 			if ( $n===false )continue;
