@@ -22,22 +22,6 @@ class MixCode extends Base {
 	}
 
 
-	/**
-	 * set the class from node
-	 * */
-	private static function set_class ($index)
-	{
-		return @self::$NODE[$index];
-	}
-/*
-	private static function str_to_arr ($str) {
-		$arr = [];
-		$max = strlen($str);
-		for ($i=0; $i<$max; $i++) {
-			$arr[$i] = $str[$i];
-		}
-		return $str;
-	}*/
 
 
 	/**
@@ -51,7 +35,7 @@ class MixCode extends Base {
 
 		$cls = null;
 		foreach ( $str as $k=>&$v) {
-			$cls = self::set_class($k) ?: $cls;
+			$cls = @self::$NODE[$k] ?: $cls;
 			$v = $cls::encode($v);
 		}
 		return join('',$str);
@@ -66,7 +50,7 @@ class MixCode extends Base {
 
 		$cls = null;
 		foreach ( $str as $k=>&$v) {
-			$cls = self::set_class($k) ?: $cls;
+			$cls = @self::$NODE[$k] ?: $cls;
 			$v = $cls::decode($v);
 		}
 		return join('',$str);
