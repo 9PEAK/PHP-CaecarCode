@@ -17,7 +17,7 @@ class FlipCode extends Base {
 			$n = strpos(self::$STRING, $str[$i]); // 字符当前位置
 			if ( $n===false ) continue;
 			$n = $total-$n-1;
-			$str[$i] = self::offset(self::$STRING[$n], self::$OFFSET);
+			$str[$i] = self::offset($str[$i], $n+self::$OFFSET);
 		}
 		return $str;
 	}
@@ -32,7 +32,7 @@ class FlipCode extends Base {
 			$n = strpos(self::$STRING, $str[$i]); // 字符当前位置
 			if ( $n===false )continue;
 			$n = $total-$n-1;
-			$str[$i] = self::offset(self::$STRING[$n], self::$OFFSET*-1);
+			$str[$i] = self::offset($str[$i], $n+self::$OFFSET*-1);
 		}
 
 		return $str;
