@@ -4,6 +4,10 @@ namespace Peak;
 
 class FlipCode extends Base {
 
+	protected static $STRING ; // 原料
+	protected static $OFFSET ; // 字符偏移
+
+
 	/**
 	 * encode the string
 	 * @param $str int. string you want to encode
@@ -27,7 +31,7 @@ class FlipCode extends Base {
 	static function decode ($str)
 	{
 		return self::encode($str);
-
+/*
 		$total = strlen(self::$STRING);
 		$max = strlen($str);
 		for ($i=0; $i<$max; $i++) {
@@ -38,6 +42,7 @@ class FlipCode extends Base {
 		}
 
 		return $str;
+		*/
 	}
 
 

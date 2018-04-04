@@ -4,8 +4,8 @@ namespace Peak;
 
 abstract class Base {
 
-	protected static $STRING = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'; // 原料
-	protected static $OFFSET = 0; // 字符偏移
+	const STRING = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'; // 原料
+	const OFFSET = 0; // 字符偏移
 
 
 
@@ -14,16 +14,12 @@ abstract class Base {
 	 * @param $material string. the material,basic string for encode
 	 * @param $offset int offset
 	 * */
-	static function config ($material, $offset=0)
+	static function config ($material=null, $offset=0)
 	{
 
-		if ( strlen($material)) {
-			static::$STRING = $material;
-		}
+		static::$STRING = strlen($material) ? $material : self::STRING;
 
-		if ( is_int($offset) ) {
-			static::$OFFSET = $offset;
-		}
+		static::$OFFSET = is_int($offset) ? $offset : self::OFFSET;
 
 	}
 

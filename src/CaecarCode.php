@@ -5,6 +5,9 @@ namespace Peak;
 class CaecarCode extends Base {
 
 
+	protected static $STRING ; // 原料
+	protected static $OFFSET ; // 字符偏移
+
 
 	/**
 	 * encode the string
@@ -33,8 +36,6 @@ class CaecarCode extends Base {
 
 		return $str;
 	}
-
-
 
 
 }

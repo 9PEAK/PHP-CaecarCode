@@ -4,6 +4,9 @@ namespace Peak;
 
 class MixCode extends Base {
 
+	protected static $STRING ; // 原料
+	protected static $OFFSET ; // 字符偏移
+
 	private static $NODE = [
 //		'node index' => 'class name'
 	];
@@ -13,11 +16,15 @@ class MixCode extends Base {
 	 * extends the parent config function
 	 * @param3 $node. array. use the key=>val type, key is the string node index, val is the class name which algorithm u wanna use
 	 * */
-	static function config ($material, $offset=0, $node=[])
+	static function config ($material=null, $offset=0, $node=[])
 	{
 		parent::config($material, $offset);
 		if ( is_array($node)) {
-			self::$NODE = $node;
+			foreach ( $node as &$cls) {
+				$cls = __NAMESPACE__.'\\'.$cls;
+				$cls::config(static::$STRING, $offset);
+			}
+			self::$NODE =& $node;
 		}
 	}
 
