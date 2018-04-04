@@ -23,38 +23,53 @@ class MixCode extends Base {
 
 
 	/**
+	 * set the class from node
+	 * */
+	private static function set_class ($index)
+	{
+		return @self::$NODE[$index];
+	}
+/*
+	private static function str_to_arr ($str) {
+		$arr = [];
+		$max = strlen($str);
+		for ($i=0; $i<$max; $i++) {
+			$arr[$i] = $str[$i];
+		}
+		return $str;
+	}*/
+
+
+	/**
 	 * encode the string
 	 * @param $str int. string you want to encode
 	 * @return string. return the encoded string
 	 * */
 	static function encode ($str)
 	{
+		$str = str_split($str);
 
-		$max = strlen($str);
-		for ($i=0; $i<$max; $i++) {
-
-			// 将输入字符分拆成小块 分别调用encode处理
-
-			$n = strpos(self::$STRING, $str[$i]); // 字符当前位置
-			$n = $max-$n;
-			$str[$i] = self::offset(self::$STRING[$n], self::$OFFSET);
+		$cls = null;
+		foreach ( $str as $k=>&$v) {
+			$cls = self::set_class($k) ?: $cls;
+			$v = $cls::encode($v);
 		}
+		return join('',$str);
 
-		return $str;
 	}
 	
 
 
 	static function decode ($str)
 	{
-		$max = strlen($str);
-		for ($i=0; $i<$max; $i++) {
-			$n = strpos(self::$STRING, $str[$i]); // 字符当前位置
-			$n = $max-$n;
-			$str[$i] = self::offset(self::$STRING[$n], self::$OFFSET*-1);
-		}
+		$str = str_split($str);
 
-		return $str;
+		$cls = null;
+		foreach ( $str as $k=>&$v) {
+			$cls = self::set_class($k) ?: $cls;
+			$v = $cls::decode($v);
+		}
+		return join('',$str);
 	}
 
 
