@@ -15,6 +15,7 @@ class FlipCode extends Base {
 		$max = strlen($str);
 		for ($i=0; $i<$max; $i++) {
 			$n = strpos(self::$STRING, $str[$i]); // 字符当前位置
+			if ( $n===false )continue;
 			$n = $max-$n;
 			$str[$i] = self::offset(self::$STRING[$n], self::$OFFSET);
 		}
@@ -28,6 +29,7 @@ class FlipCode extends Base {
 		$max = strlen($str);
 		for ($i=0; $i<$max; $i++) {
 			$n = strpos(self::$STRING, $str[$i]); // 字符当前位置
+			if ( $n===false )continue;
 			$n = $max-$n;
 			$str[$i] = self::offset(self::$STRING[$n], self::$OFFSET*-1);
 		}
