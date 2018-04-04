@@ -18,11 +18,11 @@ abstract class Base {
 	{
 
 		if ( strlen($material)) {
-			self::$STRING = $material;
+			static::$STRING = $material;
 		}
 
 		if ( is_int($offset) ) {
-			self::$OFFSET = $offset;
+			static::$OFFSET = $offset;
 		}
 
 	}
@@ -42,12 +42,12 @@ abstract class Base {
 		if (!$x) return $str; // 不位移 返回自身
 
 		// 计算位移
-		$n = strpos(self::$STRING, $str); // 字符当前位置
+		$n = strpos(static::$STRING, $str); // 字符当前位置
 
 		if (!is_int($n)) return $str; // 不存在该字符则返回自身
 
 		$x+= $n;
-		$y = strlen(self::$STRING);
+		$y = strlen(static::$STRING);
 		if ( abs($x)>=$y) {
 			$x = $x%$y; // 取余数
 		}
@@ -55,7 +55,7 @@ abstract class Base {
 			$x+=$y;
 		}
 
-		return self::$STRING[$x];
+		return static::$STRING[$x];
 
 	}
 
